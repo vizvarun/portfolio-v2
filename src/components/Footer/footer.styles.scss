@@ -1,0 +1,23 @@
+.footer {
+  background-color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+
+  p {
+    margin: 0;
+    font-family: "Louis Regular", sans-serif;
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+/* Dark mode overrides */
+body.dark .footer {
+  background-color: #171f25;
+  border-top: 1px solid #2c3a47;
+
+  p {
+    color: #e0e0e0;
+  }
+}

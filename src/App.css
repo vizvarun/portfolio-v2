@@ -1,0 +1,255 @@
+@font-face {
+  font-family: "Louis Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Louis Regular"),
+    url("./assets/fonts/Louis George Cafe.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Louis Italic";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Louis Italic"),
+    url("./assets/fonts/Louis George Cafe Italic.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Louis Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Louis Bold"),
+    url("./assets/fonts/Louis George Cafe Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Louis Bold Italic";
+  font-style: italic;
+  font-weight: bold;
+  src: local("Louis Bold Italic"),
+    url("./assets/fonts/Louis George Cafe Bold Italic.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Louis Light";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Louis Light"),
+    url("./assets/fonts/Louis George Cafe Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Louis Light Italic";
+  font-style: italic;
+  font-weight: 300;
+  src: local("Louis Light Italic"),
+    url("./assets/fonts/Louis George Cafe Light Italic.woff") format("woff");
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #f4f4f4;
+  scroll-behavior: smooth;
+}
+
+/* Replace previous texture with a stronger pattern for light mode */
+body {
+  background-color: #f4f4f4;
+  position: relative;
+  background-image: linear-gradient(
+      rgba(130, 130, 130, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(130, 130, 130, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Remove the old texture styles */
+body::before {
+  content: none;
+}
+
+@media (max-width: 768px) {
+  html {
+    padding: 0;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff4952, #ff4952);
+}
+
+@media (max-width: 500px) {
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+  *::-webkit-scrollbar-track {
+    display: none !important;
+  }
+  *::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+}
+
+/* Theme styles */
+body.dark {
+  background-color: #1d252c;
+  color: #e0e0e0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Remove the old texture styles */
+body.dark::before {
+  content: none;
+}
+
+/* Dark Theme Overrides */
+body.dark .navbar,
+body.dark .navbar-scrolled {
+  background-color: #1d252c !important;
+  border-bottom: 1px solid #2c3a47;
+}
+
+body.dark .landing-container,
+body.dark .landing-page {
+  background-color: #1d252c !important;
+}
+
+body.dark .footer {
+  background-color: #171f25 !important;
+  color: #ccc;
+}
+
+body.dark .services,
+body.dark .skills,
+body.dark .client {
+  background-color: #1d252c !important;
+  color: #e0e0e0;
+}
+
+/* Updated card dark mode overrides for consistency */
+body.dark .contact-card,
+body.dark .contact-form-card,
+body.dark .skills-category,
+body.dark .testimonial-card,
+body.dark .project-n,
+body.dark .project-n-1 {
+  background-color: #171f25 !important;
+  color: #e0e0e0;
+}
+
+/* Remove the extra grain in card backgrounds since we have dots now */
+body.dark .skills-category::before,
+body.dark .contact-info-card::before,
+body.dark .contact-form-card::before,
+body.dark .testimonial-card::before {
+  content: none; /* Remove the extra texture */
+}
+
+/* Add texture to card elements with stronger pattern */
+body.dark .skills-category,
+body.dark .contact-info-card,
+body.dark .contact-form-card,
+body.dark .testimonial-card {
+  position: relative;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 73, 82, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 73, 82, 0.1) 50%,
+    rgba(255, 73, 82, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 10px 10px;
+  background-attachment: fixed;
+}
+
+/* Remove the old style since we're applying background directly */
+body.dark .skills-category::after,
+body.dark .contact-info-card::after,
+body.dark .contact-form-card::after,
+body.dark .testimonial-card::after {
+  content: none;
+}
+
+/* Make sure card content stays above the texture */
+body.dark .skills-category > *,
+body.dark .contact-info-card > *,
+body.dark .contact-form-card > *,
+body.dark .testimonial-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.dark a {
+  color: #ff4952;
+}
+
+/* New global dark text overrides for better contrast */
+body.dark {
+  color: #f0f0f0; /* Increased contrast from #e0e0e0 */
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: #ffffff;
+}
+
+body.dark p,
+body.dark span,
+body.dark li,
+body.dark label {
+  color: #e0e0e0; /* Increased contrast from #cccccc */
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: #1e1e1e;
+  border: 1px solid #ff4952;
+  color: #ffffff; /* Ensure input text is clearly visible */
+}
+
+/* Optionally, if custom components override text color, force high-contrast */
+body.dark .hero-text,
+body.dark .sub-text,
+body.dark .about-title,
+body.dark .portfolio-title {
+  color: #ffffff !important;
+}
+
+body.dark .profile-text,
+body.dark .desc-para,
+body.dark .contact-head-h5,
+body.dark .testimonial-text {
+  color: #e0e0e0 !important; /* Ensure consistent readable text color */
+  opacity: 1; /* Remove opacity to improve readability */
+}

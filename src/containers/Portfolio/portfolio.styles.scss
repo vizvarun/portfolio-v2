@@ -1,0 +1,403 @@
+.project-block {
+  padding-top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 0px;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 50px;
+
+  .portfolio-subtitle {
+    font-size: 18px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #ff4952;
+    }
+  }
+}
+
+.project-title {
+  background-color: transparent; /* Ensure no background on project titles */
+  h2 {
+    font-family: "Louis Bold", sans-serif;
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-family: "Louis Regular", sans-serif;
+    font-size: 1.15rem;
+    color: rgba($color: #000000, $alpha: 0.5);
+  }
+}
+
+.project-img {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.project-img-wrapper {
+  margin-top: 35px;
+  position: relative;
+}
+
+.project-n-1 {
+  margin-top: 180px;
+  text-align: right;
+  background-color: transparent; /* Ensure no background */
+}
+
+.project-n {
+  background-color: transparent; /* Add this to ensure no background */
+}
+
+.divider-block {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  overflow: hidden;
+  max-width: 100%;
+  height: 0;
+  transition: 0.5s ease;
+}
+
+.project-img-wrapper:hover .overlay {
+  height: 100%;
+}
+
+.view-btn {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  .cta::before {
+    border: 1px solid rgba(255, 255, 255, 0.5) !important ;
+    border-right: 1px solid transparent !important;
+  }
+  .cta svg {
+    fill: white !important;
+    stroke: white !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .span {
+    margin: 0 auto;
+  }
+  .sub-text {
+    margin-bottom: 0;
+  }
+  .follow-text {
+    margin-top: 0;
+    text-align: center;
+  }
+  .list-unstyled {
+    align-self: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .portfolio {
+    margin-top: 30px;
+    padding-top: 50px;
+  }
+  .portfolio-text {
+    text-align: center;
+    background: none;
+    margin-top: 0;
+  }
+  .desc-para {
+    padding: 10px;
+    text-align: left;
+    font-size: 1.15rem;
+  }
+
+  .portfolio-image {
+    min-width: 60vw;
+    margin-bottom: 35px;
+  }
+  .project-n-1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .project-block {
+    text-align: center !important;
+    padding: 20px;
+  }
+  .divider-block {
+    display: flex;
+  }
+}
+
+.portfolio {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+
+  .portfolio-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(0, 0, 0, 0.1),
+      transparent
+    );
+    margin-bottom: 60px;
+  }
+
+  &-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  &-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  &-underline {
+    height: 4px;
+    width: 70px;
+    background: linear-gradient(to right, #ff4952, #2980b9);
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  &-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tab-button {
+    padding: 12px 25px;
+    background: transparent;
+    border: 2px solid #ff4952;
+    color: #333;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+
+    &:hover {
+      background: rgba(52, 152, 219, 0.1);
+    }
+
+    &.active {
+      background: #ff4952;
+      color: white;
+    }
+  }
+
+  &-content {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  &-category-title {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 1.8rem;
+      color: #333;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #ff4952,
+          transparent
+        );
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 60px 0;
+
+    &-title {
+      font-size: 2.5rem;
+    }
+
+    &-tabs {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tab-button {
+      width: 80%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+/* Dark mode overrides */
+body.dark .portfolio {
+  background-color: #1d252c;
+  color: #e0e0e0;
+
+  .portfolio-divider {
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
+}
+body.dark .portfolio-header .portfolio-subtitle {
+  color: #ff4952;
+}
+body.dark .portfolio-header .portfolio-title {
+  color: #e0e0e0;
+}
+body.dark .project-title h2 {
+  color: #e0e0e0;
+}
+body.dark .project-title h4 {
+  color: #ccc;
+}
+
+/* Fix portfolio tabs readability in dark mode */
+body.dark .portfolio .tab-button {
+  color: #ffffff !important;
+  border: 2px solid #ff4952;
+  background: transparent;
+  font-weight: 600;
+}
+
+body.dark .portfolio .tab-button:hover {
+  background: rgba(255, 73, 82, 0.2);
+}
+
+body.dark .portfolio .tab-button.active {
+  background: #ff4952;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(255, 73, 82, 0.5);
+}
+
+body.dark .portfolio-category-title h3 {
+  color: #ffffff;
+}
+
+body.dark .portfolio-category-title h3:after {
+  background: linear-gradient(to right, transparent, #ff4952, transparent);
+}
+
+/* Make sure project cards have proper background in dark mode */
+body.dark .project-n,
+body.dark .project-n-1 {
+  background-color: transparent;
+}
+
+body.dark .project-title {
+  background-color: transparent; /* Ensure no background in dark mode */
+}
+
+/* Fix overlay button hover effect in dark mode */
+body.dark .overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark .overlay .cta {
+  position: relative;
+  color: #ffffff;
+}
+
+body.dark .overlay .cta::before {
+  border: 1px solid rgba(255, 73, 82, 0.6) !important;
+  border-right: 1px solid transparent !important;
+  background: transparent;
+}
+
+body.dark .overlay .cta:hover::before {
+  border: 1px solid #ff4952 !important;
+  background: #ff4952;
+}
+
+body.dark .overlay .cta span {
+  color: #ffffff !important;
+}
+
+body.dark .overlay .cta:hover span {
+  color: #ffffff !important;
+}
+
+body.dark .overlay .cta svg {
+  stroke: #ffffff !important;
+}
+
+body.dark .overlay .cta:hover svg {
+  stroke: #ffffff !important;
+}
+
+/* Ensure all project cards have transparent backgrounds */
+body.dark .project-n,
+body.dark .project-n-1,
+body.dark .project-title,
+body.dark .project-block,
+body.dark .project-img-wrapper {
+  background-color: transparent !important;
+}
+
+/* Make sure any card wrappers are also transparent */
+body.dark .col-md-12,
+body.dark .col-lg-6 {
+  background-color: transparent !important;
+}

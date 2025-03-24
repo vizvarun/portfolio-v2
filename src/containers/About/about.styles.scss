@@ -1,0 +1,481 @@
+.about {
+  padding-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 30px;
+  z-index: 1;
+  .about-subtitle {
+    font-size: 18px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .about-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #ff4952;
+    }
+  }
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  max-width: 26vw;
+  margin-bottom: 40px;
+}
+.about-text {
+  position: relative;
+  background: none;
+}
+
+.head-text {
+  font-family: "Louis Bold", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.main-head {
+  font-family: "Louis Bold", sans-serif;
+  font-size: 3rem;
+  letter-spacing: -1.5px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.desc-para {
+  font-family: "Louis Regular", sans-serif;
+  opacity: 0.6;
+  font-size: 16px;
+  line-height: 1.88;
+  color: #000000;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+i {
+  font-size: 22px;
+}
+
+.profile-block {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.profile-text {
+  font-family: "Louis Bold", sans-serif;
+  font-size: 1.1rem;
+  color: black;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.map-icon {
+  font-size: 1rem;
+  margin-top: 0.9%;
+  color: black;
+  opacity: 0.7;
+}
+
+.resume-btn {
+  margin-bottom: 25px;
+  outline: none;
+}
+
+.btn-def {
+  background-color: none;
+  text-align: center;
+}
+
+.btn-def a.cta::before {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid transparent;
+}
+
+.btn-def a.cta span {
+  color: #ffffff;
+}
+
+.btn-def a.cta svg {
+  stroke: #ffffff;
+}
+
+.btn-def a.cta:hover::before {
+  border: 1px solid rgba(52, 152, 219, 0.6);
+  width: 108%;
+  background: #ff4952;
+}
+
+.btn-def a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "Louis Bold";
+}
+
+.btn-def a.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+.btn-def a.cta:hover span {
+  color: #ffffff;
+  text-decoration: none !important;
+}
+
+.btn-def a.cta:hover svg {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  stroke: #ffffff;
+  text-decoration: none !important;
+}
+
+.btn-def a.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  display: block;
+  border-radius: 30px;
+  background: rgba(255, 73, 82, 0);
+  border: 1px solid rgba(255, 73, 82, 0.6);
+  border-right: 1px solid transparent;
+  width: 60px;
+  height: 60px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.btn-def a.cta span {
+  position: relative;
+  font-size: 18px;
+  line-height: 0.56;
+  font-weight: 900;
+  vertical-align: middle;
+  color: #000000;
+  text-decoration: none !important;
+}
+
+.btn-def a.cta svg {
+  position: relative;
+  top: 2px;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #000000;
+  stroke-width: 2;
+  -webkit-transform: translateX(-5px);
+  transform: translateX(-5px);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.btn-def a.cta:active {
+  -webkit-transform: scale(0.96);
+  transform: scale(0.96);
+  text-decoration: none !important;
+}
+
+@media (max-width: 1245px) {
+  .hero-text {
+    text-align: center;
+    font-size: 4rem;
+  }
+  .sub-text {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  .desc-para {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 1046px) {
+  .hero-text {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .sub-text {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .span {
+    margin: 0 auto;
+  }
+  .sub-text {
+    margin-bottom: 0;
+  }
+  .follow-text {
+    margin-top: 0;
+    text-align: center;
+  }
+  .list-unstyled {
+    align-self: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .about {
+    margin-top: 30px;
+  }
+  .about-text {
+    text-align: center;
+    background: none;
+  }
+  .desc-para {
+    padding: 10px;
+    text-align: center !important;
+    font-size: 1.15rem;
+    margin-bottom: 40px;
+  }
+  .profile-block {
+    justify-content: center !important;
+  }
+  .profile-image {
+    max-width: 60vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-page {
+    max-width: 100vw !important;
+    padding: 45px 45px;
+  }
+  .hero-text {
+    text-align: center;
+    font-size: 2.25rem;
+  }
+  .sub-text {
+    font-size: 1.25rem;
+    letter-spacing: 0px;
+  }
+  .profile-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 586px) {
+  .profile-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 499px) {
+  .hero-text {
+    text-align: center;
+    font-size: 2.25rem;
+  }
+  .sub-text {
+    font-size: 1.25rem;
+  }
+  .landing-page {
+    max-width: 100vw !important;
+    padding: 45px 10px;
+  }
+  .profile-block {
+    padding: 10px;
+  }
+  .map-icon {
+    margin-top: 1.5%;
+  }
+  .main-head {
+    font-size: 2.5rem;
+  }
+  .desc-para {
+    text-align: center !important;
+  }
+  .profile-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .hero-text {
+    text-align: center;
+    font-size: 2.15rem;
+  }
+  .sub-text {
+    font-size: 1.25rem;
+  }
+  .desc-para {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-text {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .sub-text {
+    font-size: 1.2rem;
+  }
+  .desc-para {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 325px) {
+  .hero-text {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+  .sub-text {
+    font-size: 1rem;
+  }
+  .desc-para {
+    text-align: center !important;
+  }
+}
+
+/* Dark mode overrides */
+body.dark .about {
+  background-color: #1d252c;
+  color: #f0f0f0; /* Increased contrast */
+}
+
+body.dark .about-header .about-subtitle {
+  color: #ff4952;
+  opacity: 1; /* Ensure subtitle is clearly visible */
+}
+
+body.dark .about-header .about-title {
+  color: #ffffff; /* Pure white for better contrast */
+}
+
+body.dark .desc-para {
+  color: #e0e0e0; /* Lighter color than #ccc for better readability */
+  opacity: 1; /* Remove opacity to improve readability */
+}
+
+body.dark .profile-text,
+body.dark .map-icon {
+  color: #e0e0e0;
+  opacity: 1; /* Remove opacity to improve readability */
+}
+
+body.dark .btn-def a.cta span {
+  color: #ffffff; /* Ensure button text is visible */
+}
+
+body.dark .btn-def a.cta svg {
+  stroke: #ffffff; /* Ensure SVG arrow is visible */
+}
+
+/* Dark mode overrides for CTA buttons */
+body.dark .btn-def a.cta {
+  color: #ffffff;
+}
+
+body.dark .btn-def a.cta::before {
+  border: 1px solid rgba(255, 73, 82, 0.6);
+  border-right: 1px solid transparent;
+  background: transparent;
+}
+
+body.dark .btn-def a.cta span {
+  color: #ffffff;
+}
+
+body.dark .btn-def a.cta svg {
+  stroke: #ffffff;
+}
+
+body.dark .btn-def a.cta:hover::before {
+  border: 1px solid #ff4952;
+  background: #ff4952;
+}
+
+body.dark .btn-def a.cta:hover span {
+  color: #ffffff;
+}
+
+/* Enhanced dark mode button fixes specifically for Resume button */
+body.dark .resume-btn a.cta {
+  position: relative;
+}
+
+body.dark .resume-btn a.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  display: block;
+  border-radius: 30px;
+  background: transparent !important;
+  border: 1px solid rgba(255, 73, 82, 0.6) !important;
+  border-right: 1px solid transparent !important;
+  width: 60px;
+  height: 60px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+body.dark .resume-btn a.cta span {
+  color: #ffffff !important;
+}
+
+body.dark .resume-btn a.cta svg {
+  stroke: #ffffff !important;
+}
+
+body.dark .resume-btn a.cta:hover::before {
+  border: 1px solid #ff4952 !important;
+  border-right: 1px solid #ff4952 !important;
+  background: #ff4952 !important;
+  width: 108% !important;
+}
+
+body.dark .resume-btn a.cta:hover span {
+  color: #ffffff !important;
+}
+
+body.dark .resume-btn a.cta:hover svg {
+  stroke: #ffffff !important;
+}
+
+.typewriter-wrapper {
+  display: inline-block;
+  min-height: 24px; /* Set a fixed height to prevent layout shifts */
+  font-weight: 600;
+  color: #ff4952; /* Use your accent color */
+}
+
+/* Dark mode style for typewriter */
+body.dark .typewriter-wrapper {
+  color: #ff4952; /* Same accent color for dark mode */
+}
+
+body.dark .Typewriter__cursor {
+  color: #ffffff;
+}

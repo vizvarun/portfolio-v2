@@ -1,0 +1,321 @@
+.navbar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; // Prevent horizontal scrolling
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 100vw; // Ensure it doesn't exceed viewport width
+  background-color: white;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: none;
+  margin: 0; // Remove conflicting margins
+  border-bottom: none; /* Explicitly set no border initially */
+
+  &-scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease,
+      border-bottom 0.3s ease; /* Include border in transition */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-between; // This ensures space between brand and nav
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto; // Re-add this to ensure centering
+    width: 100%; // Ensure it takes available width up to max-width
+  }
+
+  &-brand {
+    display: inline-block;
+    align-self: start;
+    // Removed margin-right: auto to allow natural positioning
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  .right-group {
+    display: none; // Hide by default
+  }
+
+  .mobile-right-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+
+    @media (min-width: 769px) {
+      display: none; // Hide on desktop
+    }
+  }
+
+  .mobile-only {
+    @media (min-width: 769px) {
+      display: none; // Hide on desktop
+    }
+  }
+
+  .desktop-only {
+    @media (max-width: 768px) {
+      display: none !important; // Hide on mobile
+    }
+  }
+
+  .right-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  &-toggler {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 15px; // Add space between toggler and theme switcher
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin-bottom: 4px;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &-collapse {
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      &.show {
+        max-height: 300px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center; // Ensure vertical alignment
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1rem 0;
+    }
+
+    @media (min-width: 769px) {
+      margin-left: auto; // This ensures nav items stay to the right
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .theme-switcher-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 15px;
+    }
+
+    .nav-item {
+      margin: 0 0.2rem;
+
+      @media (max-width: 768px) {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-link {
+        color: #333;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        display: block;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}
+
+// Remove duplicate selector and fix margins
+// The navbar was being styled twice with conflicting margins
+.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-link {
+  font-family: "Louis Bold", sans-serif;
+  cursor: pointer;
+}
+
+@media (min-width: 991px) {
+  .nav-link::after {
+    display: flex;
+    content: "";
+    width: 0;
+    height: 1px;
+    padding-top: 2%;
+    background: rgba($color: #000, $alpha: 0.5);
+    transition: width 0.3s;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    transition: width 0.3s;
+  }
+
+  /* Fix dark mode underline animation */
+  body.dark .nav-link::after {
+    background: rgba(
+      $color: #ff4952,
+      $alpha: 0.8
+    ); /* Use accent color for underline */
+  }
+}
+
+/* Dark mode overrides */
+body.dark .navbar {
+  background-color: rgb(25, 32, 37, 0.5) !important;
+  border-bottom: none; /* Explicitly set no border initially in dark mode */
+}
+
+body.dark .navbar .navbar-nav .nav-item .nav-link {
+  color: #ffffff !important; /* Pure white with !important to ensure it overrides other styles */
+  font-weight: 600; /* Make text slightly bolder */
+}
+
+/* Add dark mode specific scrolled navbar styles */
+body.dark .navbar.navbar-scrolled {
+  background: rgba(29, 37, 44, 0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease,
+    border-bottom 0.3s ease; /* Include border in transition */
+}
+
+body.dark .navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #ff4952 !important; /* Accent color on hover with !important */
+}
+
+/* Add navbar brand SVG color override for dark mode */
+body.dark .navbar-brand svg g {
+  fill: #ffffff !important; /* Change SVG fill to white in dark mode */
+}
+
+body.dark .navbar-collapse {
+  @media (max-width: 768px) {
+    background-color: #171f25; /* Ensure mobile menu has dark background */
+  }
+}
+
+body.dark .navbar-toggler span {
+  background-color: #ffffff; /* Make hamburger menu visible in dark mode */
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    margin: 0; // Ensure consistent margin on mobile
+    width: 100%;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+}
+
+.theme-switcher {
+  background: none;
+  border: 2px solid #ff4952;
+  padding: 0.6rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Louis Bold", sans-serif;
+  color: #ff4952;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none !important;
+  margin-left: 15px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  // In mobile view, remove left margin when grouped with toggler
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+
+  &:hover {
+    background: #ff4952;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(255, 73, 82, 0.2); // Reduced shadow intensity
+
+    svg {
+      stroke: #fff;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+body.dark .theme-switcher {
+  border-color: #ff4952;
+  color: #ff4952;
+
+  svg {
+    stroke: #ff4952;
+  }
+
+  &:hover {
+    background: #ff4952;
+    box-shadow: 0 3px 6px rgba(255, 73, 82, 0.3); // Reduced shadow intensity
+
+    svg {
+      stroke: #121212;
+    }
+  }
+}
