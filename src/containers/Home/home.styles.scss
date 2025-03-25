@@ -1,6 +1,8 @@
 .landing-page {
   max-width: 100vw !important;
-  padding: 65px 80px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 45px;
   margin-top: 60px; // Add margin to account for fixed navbar
   background-color: #f9f9f9;
 }
@@ -8,14 +10,15 @@
 .span {
   width: 55px;
   height: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   background-color: #ffb74f;
   display: block;
 }
 
 .hero-text {
   font-family: "Louis Bold", sans-serif;
-  font-size: 5rem;
+  font-size: 4rem;
   letter-spacing: -2px;
   color: #000000;
   margin-top: 25px;
@@ -24,12 +27,14 @@
 
 .sub-text {
   font-family: "Louis Bold", sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   letter-spacing: -1.5px;
   color: #000000;
   margin-top: 10px;
   margin-bottom: 30px;
   width: 90%;
+  min-width: 350px; // adjust value as needed
+  white-space: nowrap;
 }
 
 .inner-span {
@@ -45,10 +50,6 @@
   font-size: 1.25rem;
   margin-top: 25px;
   margin-bottom: 30px;
-}
-
-.about {
-  margin-top: 5%;
 }
 
 .list-unstyled {
