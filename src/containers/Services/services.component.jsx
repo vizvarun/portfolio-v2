@@ -14,7 +14,7 @@ const services = [
 const Services = () => {
   return (
     <div>
-      <section className="services" id="services">
+      <section className="services" id="expertise">
         <div className="services-divider" />
         <div className="container">
           <div className="row services-row">
