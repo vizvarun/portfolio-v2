@@ -270,10 +270,10 @@ body.dark .client {
 
   .testimonial-card {
     background: #1e1e1e;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
     .client-name {

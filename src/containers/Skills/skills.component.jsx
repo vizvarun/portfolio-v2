@@ -13,6 +13,7 @@ const Skills = () => {
     { title: "Graphics & Illustrations", id: 1 },
     { title: "Iconography", id: 2 },
     { title: "Typography", id: 3 },
+    { title: "Branding & Identity", id: 5 },
     { title: "Prototyping & Testing", id: 4 },
   ];
 
@@ -21,7 +22,8 @@ const Skills = () => {
     { title: "React Native", id: 1 },
     { title: "Angular", id: 2 },
     { title: "Spring Boot", id: 3 },
-    { title: "PostgreSQL", id: 4 },
+    { title: "PHP", id: 4 },
+    { title: "PostgreSQL", id: 5 },
   ];
 
   const tools = [
@@ -30,6 +32,7 @@ const Skills = () => {
     { title: "DBeaver", id: 1, src: dbeaverIcon },
     { title: "Docker", id: 2, src: dockerIcon },
     { title: "Figma", id: 3, src: figmaIcon },
+    { title: "Adobe Photoshop", id: 5, src: photoshopIcon },
   ];
 
   return (

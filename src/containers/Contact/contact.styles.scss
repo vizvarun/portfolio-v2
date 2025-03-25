@@ -398,10 +398,10 @@ body.dark .contact {
 body.dark .contact-info-card,
 body.dark .contact-form-card {
   background: #171f25;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Reduced shadow intensity
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // Reduced shadow intensity
   }
 
   .contact-title {

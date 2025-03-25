@@ -218,10 +218,10 @@ body.dark .skills-header {
 
 body.dark .skills-category {
   background: #171f25;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); // Reduced shadow intensity
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); // Reduced shadow intensity
   }
 
   .category-title {
