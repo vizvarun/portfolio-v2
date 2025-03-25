@@ -21,7 +21,7 @@ const About = () => {
                 <i className="fas fa-map-marker-alt map-icon"></i>
                 <p className="profile-text">&nbsp; India | &nbsp;</p>
                 <p className="profile-text">
-                  React | Angular | Springboot | UI/UX
+                  React | Angular | Spring Boot | UI/UX
                 </p>
               </div>
               <p className="desc-para">
