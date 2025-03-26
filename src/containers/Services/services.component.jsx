@@ -41,7 +41,6 @@ const Services = () => {
             </div>
           </div>
           <div className="row services-row-small">
-            <div className="divider-block" />
             <div className="col-lg-6 image-block">
               <img className="services-image" src={servicesGif} alt="profile" />
             </div>

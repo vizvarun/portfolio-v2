@@ -185,6 +185,37 @@
     .text-991 {
       display: block;
     }
+
+    .skills-category {
+      text-align: center;
+
+      .category-title {
+        text-align: center;
+
+        &:after {
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+        }
+      }
+    }
+
+    .skill-item {
+      .skill-header {
+        justify-content: center;
+      }
+    }
+
+    .tool-item {
+      .tool-name-container {
+        justify-content: center;
+      }
+    }
+
+    // Center the skills list items
+    .skills-list {
+      align-items: center;
+    }
   }
 }
 

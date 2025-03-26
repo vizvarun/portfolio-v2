@@ -69,10 +69,60 @@ const Contact = () => {
                   <a href="tel:8271256678">+91 8271256678</a>
                 </h5>
               </div>
+
+              {/* Add new section for additional info */}
+              <div className="contact-additional-info">
+                <h3 className="contact-title">Connect With Me</h3>
+                <div className="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/vizvarun/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="https://github.com/vizvarun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <i className="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://www.behance.net/vizvarun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Behance"
+                  >
+                    <i className="fab fa-behance"></i>
+                  </a>
+                  <a
+                    href="https://stackoverflow.com/users/11617369/varun-vishal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Stack Overflow"
+                  >
+                    <i className="fab fa-stack-overflow"></i>
+                  </a>
+                </div>
+
+                <div className="availability-info">
+                  <h4 className="availability-title">Current Availability</h4>
+                  <p className="availability-text">
+                    I'm currently available for freelance work and full-time
+                    opportunities. Feel free to reach out if you'd like to
+                    discuss a potential project or position.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-5 detailed">
+          {" "}
+          {/* Add the "detailed" class here */}
           {/* Redesign form: wrap in card with a new class */}
           <div className="contact-card contact-form-card">
             <div className="card-body">
@@ -102,6 +152,20 @@ const Contact = () => {
                   id="defaultFormContactEmailEx"
                   className="form-control"
                   name="email"
+                />
+
+                <br />
+                <label
+                  htmlFor="defaultFormContactSubjectEx"
+                  className="grey-text"
+                >
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="defaultFormContactSubjectEx"
+                  className="form-control"
+                  name="subject"
                 />
 
                 <br />

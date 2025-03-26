@@ -34,13 +34,13 @@ const About = () => {
                 </p>
               </div>
               <p className="desc-para">
-                I'm a full-stack developer and creative UI/UX designer
-                passionate about building intuitive, responsive applications. I
-                blend technical expertise with a keen eye for design to craft
-                experiences that are both functional and visually engaging. When
-                I'm not coding or sketching out interfaces, you can find me
-                exploring new music, playing the guitar, or traveling to gain
-                fresh inspiration.
+                I'm a software developer and creative UI/UX designer with over
+                4.5 years of experience, passionate about building intuitive,
+                responsive applications. I blend technical expertise with a keen
+                eye for design to craft experiences that are both functional and
+                visually engaging. When I'm not coding or sketching out
+                interfaces, you can find me exploring new music, playing the
+                guitar, or traveling to gain fresh inspiration.
               </p>
               <div className="btn-def resume-btn">
                 <a

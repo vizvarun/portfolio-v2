@@ -1,7 +1,7 @@
 .contact {
   padding-top: 10px;
   padding-bottom: 30px;
-  margin-top: 75px;
+  margin-top: 50px;
   .divider-block {
     margin-top: 25px;
   }
@@ -58,6 +58,10 @@
 .btn-def {
   background-color: none;
   text-align: center;
+}
+
+#defaultFormContactMessageEx {
+  margin-bottom: 50px;
 }
 
 .resume-btn {
@@ -177,6 +181,15 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; // Make cards take full height of parent
+  display: flex;
+  flex-direction: column;
+
+  .card-body {
+    flex: 1; // Make card body take available space
+    display: flex;
+    flex-direction: column;
+  }
 
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07); // Reduced shadow intensity
@@ -189,22 +202,96 @@
     margin-bottom: 25px;
     position: relative;
     padding-bottom: 10px;
+    text-align: left; /* Left align for desktop */
 
     &:after {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: 0; /* Left aligned underline for desktop */
       width: 40px;
       height: 3px;
       background: #ff4952;
+      transform: none; /* Remove transform for desktop */
     }
+  }
+}
+
+// Add styles for additional content in contact info card
+.contact-additional-info {
+  margin-top: auto; 
+  padding-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: #333;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #ff4952;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    // Brand-specific hover colors
+    &[aria-label="LinkedIn"]:hover {
+      background-color: #0077b5;
+    }
+
+    &[aria-label="GitHub"]:hover {
+      background-color: #24292e;
+    }
+
+    &[aria-label="Behance"]:hover {
+      background-color: #053eff;
+    }
+
+    &[aria-label="Stack Overflow"]:hover {
+      background-color: #f48024;
+    }
+
+    i {
+      font-size: 18px;
+    }
+  }
+}
+
+.availability-info {
+  margin-top: 30px;
+
+  .availability-title {
+    font-family: "Louis Bold", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  .availability-text {
+    font-family: "Louis Regular", sans-serif;
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
 
 .contact-details {
   font-family: "Louis Regular", sans-serif;
   font-size: 1.25rem;
+  text-align: left; /* Left align for desktop */
 
   a {
     text-decoration: none;
@@ -246,6 +333,12 @@ input {
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 25px;
+
+  // Make contact cards equal height using flexbox
+  .col-md-5.detailed {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .detailed {
@@ -341,6 +434,12 @@ textarea[type="text"]:focus {
   }
 }
 
+@media (max-width: 768px) {
+  .contact {
+    margin-top: 50px !important;
+  }
+}
+
 @media (max-width: 991px) {
   .contact {
     text-align: center;
@@ -350,6 +449,9 @@ textarea[type="text"]:focus {
   }
   .contact-row {
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact {
@@ -365,6 +467,83 @@ textarea[type="text"]:focus {
 
   .main-head {
     margin: 0;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    max-width: 100%; /* Ensure full width on smaller screens */
+    margin-bottom: 30px;
+    height: auto;
+    min-height: 300px;
+
+    .contact-title {
+      text-align: center; /* Center text only on mobile */
+
+      &:after {
+        left: 50%; /* Center underline only on mobile */
+        transform: translateX(-50%); /* Center underline only on mobile */
+      }
+    }
+  }
+
+  .contact-details {
+    text-align: center; /* Center details only on mobile */
+  }
+
+  /* Ensure form elements are centered in mobile view */
+  form {
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Fix contact section layout for screens under 1200px */
+@media (max-width: 1199px) {
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-md-5.detailed {
+    width: 100%;
+    max-width: 700px; /* Consistent max-width */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px; /* Add bottom margin to both cards */
+  }
+
+  /* Hide the empty column spacer on smaller screens */
+  .col-md-1.detailed {
+    display: none;
+  }
+}
+
+/* Enhance existing mobile styles for even smaller screens */
+@media (max-width: 768px) {
+  .contact {
+    margin-top: 50px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .col-md-5.detailed {
+    padding: 0 15px;
   }
 }
 
@@ -411,6 +590,30 @@ body.dark .contact-form-card {
     &:after {
       background: #ff4952;
     }
+  }
+}
+
+body.dark .contact-additional-info {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .social-links a {
+  background-color: #2c3a47;
+  color: #e0e0e0;
+
+  &:hover {
+    background-color: #ff4952;
+    color: #ffffff;
+  }
+}
+
+body.dark .availability-info {
+  .availability-title {
+    color: #ffffff;
+  }
+
+  .availability-text {
+    color: #b0b0b0;
   }
 }
 

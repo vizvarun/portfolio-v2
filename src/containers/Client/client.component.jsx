@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./client.styles.scss";
 import avatar6 from "../../assets/images/avatar6.png";
 import avatar5 from "../../assets/images/avatar5.png";
@@ -8,7 +8,6 @@ import avatar4 from "../../assets/images/avatar4.png";
 import avatar3 from "../../assets/images/avatar3.png";
 
 const Clients = () => {
-  // Create testimonials data to avoid repetition and add keys
   const testimonials = [
     {
       id: 1,
@@ -66,6 +65,48 @@ const Clients = () => {
     },
   ];
 
+  // Add state to track current testimonial
+  const [currentIndex, setCurrentIndex] = useState(0);
+  // Add state to track slide direction for animation
+  const [slideDirection, setSlideDirection] = useState("next");
+
+  // Auto slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideDirection("next");
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  // Navigation functions
+  const goToNext = () => {
+    setSlideDirection("next");
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const goToPrev = () => {
+    setSlideDirection("prev");
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  // Handle dot navigation with proper animation direction
+  const goToSlide = (index) => {
+    setSlideDirection(index > currentIndex ? "next" : "prev");
+    setCurrentIndex(index);
+  };
+
+  // Get current testimonial
+  const currentTestimonial = testimonials[currentIndex];
+
+  // Calculate previous and next indices for the faded cards
+  const prevIndex =
+    (currentIndex - 1 + testimonials.length) % testimonials.length;
+  const nextIndex = (currentIndex + 1) % testimonials.length;
+
   return (
     <div>
       <section id="client" className="client">
@@ -76,31 +117,113 @@ const Clients = () => {
             <h2 className="testimonials-title">Client Feedback</h2>
           </div>
 
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial) => (
-              <div className="testimonial-card" key={testimonial.id}>
+          <div className="testimonials-carousel-container">
+            <button onClick={goToPrev} className="nav-button prev-button">
+              <span className="arrow">&#10094;</span>
+            </button>
+
+            <div className={`testimonials-carousel slide-${slideDirection}`}>
+              {/* Previous card (faded) */}
+              <div className="testimonial-card faded prev-card">
                 <div className="client-info">
                   <img
-                    src={testimonial.avatar}
-                    alt={`${testimonial.name} avatar`}
+                    src={testimonials[prevIndex].avatar}
+                    alt={`${testimonials[prevIndex].name} avatar`}
                     className="client-avatar"
                   />
                   <div>
-                    <h3 className="client-name">{testimonial.name}</h3>
-                    <p className="client-country">{testimonial.country}</p>
+                    <h3 className="client-name">
+                      {testimonials[prevIndex].name}
+                    </h3>
+                    <p className="client-country">
+                      {testimonials[prevIndex].country}
+                    </p>
+                  </div>
+                </div>
+                <div className="star-rating">
+                  {[...Array(testimonials[prevIndex].stars)].map((_, i) => (
+                    <span key={i} className="star">
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <p className="testimonial-text">
+                  {testimonials[prevIndex].review}
+                </p>
+              </div>
+
+              {/* Current card (active) */}
+              <div className="testimonial-card active-card">
+                <div className="client-info">
+                  <img
+                    src={currentTestimonial.avatar}
+                    alt={`${currentTestimonial.name} avatar`}
+                    className="client-avatar"
+                  />
+                  <div>
+                    <h3 className="client-name">{currentTestimonial.name}</h3>
+                    <p className="client-country">
+                      {currentTestimonial.country}
+                    </p>
                   </div>
                 </div>
 
                 <div className="star-rating">
-                  {[...Array(testimonial.stars)].map((_, i) => (
+                  {[...Array(currentTestimonial.stars)].map((_, i) => (
                     <span key={i} className="star">
                       ★
                     </span>
                   ))}
                 </div>
 
-                <p className="testimonial-text">{testimonial.review}</p>
+                <p className="testimonial-text">{currentTestimonial.review}</p>
               </div>
+
+              {/* Next card (faded) */}
+              <div className="testimonial-card faded next-card">
+                <div className="client-info">
+                  <img
+                    src={testimonials[nextIndex].avatar}
+                    alt={`${testimonials[nextIndex].name} avatar`}
+                    className="client-avatar"
+                  />
+                  <div>
+                    <h3 className="client-name">
+                      {testimonials[nextIndex].name}
+                    </h3>
+                    <p className="client-country">
+                      {testimonials[nextIndex].country}
+                    </p>
+                  </div>
+                </div>
+                <div className="star-rating">
+                  {[...Array(testimonials[nextIndex].stars)].map((_, i) => (
+                    <span key={i} className="star">
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <p className="testimonial-text">
+                  {testimonials[nextIndex].review}
+                </p>
+              </div>
+            </div>
+
+            <button onClick={goToNext} className="nav-button next-button">
+              <span className="arrow">&#10095;</span>
+            </button>
+          </div>
+
+          <div className="carousel-indicators">
+            {testimonials.map((_, index) => (
+              <span
+                key={index}
+                className={`indicator-dot ${
+                  index === currentIndex ? "active" : ""
+                }`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
             ))}
           </div>
         </div>

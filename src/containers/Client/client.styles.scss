@@ -213,6 +213,7 @@
 @media (max-width: 991px) {
   .client {
     text-align: center;
+    padding-top: 40px; /* Reduced top padding on mobile/tablet */
   }
   .card-container {
     padding-left: 0px;
@@ -236,8 +237,332 @@
 }
 
 @media (max-width: 768px) {
+  .client {
+    padding-top: 0px !important; /* Further reduced top padding on smaller devices */
+  }
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 20px 15px;
+
+    .client-info {
+      flex-direction: column;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px; /* Reduced margin */
+
+      .client-avatar {
+        display: block;
+        margin: 0 auto 12px !important; /* Force center with !important */
+        width: 70px;
+        height: 70px;
+      }
+
+      div {
+        width: 100%;
+        text-align: center;
+      }
+
+      .client-name {
+        margin-top: 8px;
+        text-align: center;
+        text-align-last: center !important; /* Override the left alignment */
+        width: 100%; /* Ensure full width */
+      }
+
+      .client-country {
+        text-align: center;
+        width: 100%; /* Ensure full width */
+      }
+    }
+
+    .star-rating {
+      justify-content: center;
+      display: flex;
+      margin: 12px 0;
+    }
+
+    .testimonial-text {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-bottom: 15px; /* Add space between text and bottom of card */
+      padding-bottom: 15px; /* Additional padding at bottom */
+    }
+
+    &.active-card {
+      flex: 0 0 70%;
+    }
+
+    &.faded {
+      display: none; // Hide faded cards on mobile
+    }
+  }
+
+  .carousel-indicators {
+    margin-top: 15px; /* Increased top margin for dots */
+    gap: 12px; /* Increased spacing between dots */
+    position: relative;
+    padding: 10px 0; /* Add vertical padding around dots */
+
+    .indicator-dot {
+      width: 8px; /* Revert back to original size */
+      height: 8px; /* Revert back to original size */
+      margin: 0 2px; /* Keep horizontal margin between dots */
+    }
+
+    .card-range {
+      position: absolute;
+      right: 10px;
+      font-size: 14px;
+      color: #777;
+      padding: 4px 8px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .nav-button {
+    height: 40px;
+    width: 40px;
+
+    &.prev-button {
+      left: 2%;
+    }
+
+    &.next-button {
+      right: 2%;
+    }
+
+    .arrow {
+      font-size: 16px;
+    }
+  }
+
+  .testimonials-carousel-container {
+    margin: 20px 0 10px; // Smaller margins on mobile
+  }
+
+  .nav-button {
+    display: none !important; /* Use !important to ensure they're hidden */
+  }
+
+  .testimonials-carousel-container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .testimonials-carousel {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Make active card full width since nav buttons are hidden */
+  .testimonial-card {
+    margin: 0;
+    padding: 20px 10px;
+
+    &.active-card {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Ensure container doesn't restrict width */
+  .card-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .testimonials-carousel-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Give more space to the active card since we don't have nav buttons */
+  .testimonial-card {
+    &.active-card {
+      flex: 0 0 90%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Further adjust spacing for very small screens */
+  @media (max-width: 480px) {
+    .client {
+      padding-top: 20px; /* Minimal padding for very small screens */
+    }
+    .testimonial-card {
+      &.active-card {
+        flex: 0 0 95%;
+        max-width: 95%;
+      }
+    }
+  }
+
+  .nav-button {
+    display: none !important; /* Keep navigation buttons hidden */
+  }
+
+  .testimonials-carousel-container {
+    padding: 0;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .testimonials-carousel {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Make card take full width with minimal padding */
+  .testimonial-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+
+    &.active-card {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      transform: none !important;
+    }
+
+    &.faded {
+      display: none !important; /* Ensure faded cards don't take space */
+    }
+  }
+
+  /* Ensure container doesn't restrict width */
+  .card-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 15px 10px;
+    margin: 0 5px;
+
+    &.active-card {
+      flex: 0 0 85%;
+    }
+
+    .client-info {
+      .client-avatar {
+        display: block;
+        margin: 0 auto 12px !important; /* Force center with !important */
+        width: 60px !important;
+        height: 60px !important;
+      }
+
+      div {
+        padding: 0 5px; /* Add some padding to the text container */
+      }
+    }
+
+    // ...existing code...
+  }
+
+  // Override any potential flex alignment issues
+  .client-info {
+    justify-content: center !important;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  // Global override for client-name in small screens
+  .client-name {
+    text-align: center !important;
+    text-align-last: center !important;
+  }
+
+  .testimonial-card {
+    padding: 15px 10px;
+    margin: 0 5px;
+
+    &.active-card {
+      flex: 0 0 85%;
+    }
+
+    .client-info {
+      .client-avatar {
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 60px !important;
+        height: 60px !important;
+      }
+    }
+
+    .client-avatar {
+      width: 60px !important;
+      height: 60px !important;
+    }
+
+    .testimonial-text {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      margin-bottom: 18px; /* Extra space for smaller screens */
+      padding-bottom: 7px;
+    }
+  }
+
+  .carousel-indicators {
+    margin-top: 20px; /* Keep increased margin on very small screens */
+    gap: 15px; /* Keep wider gaps on very small screens */
+
+    .indicator-dot {
+      width: 8px; /* Revert back to original size */
+      height: 8px; /* Revert back to original size */
+    }
+  }
+
+  .nav-button {
+    height: 35px;
+    width: 35px;
+
+    .arrow {
+      font-size: 14px;
+    }
+  }
+
+  .testimonial-card {
+    padding: 12px !important; /* Slightly reduced padding for very small screens */
+
+    &.active-card {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
+    .testimonial-text {
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
   }
 }
 
@@ -307,4 +632,347 @@ body.dark .review {
 body.dark .client-name,
 body.dark .client-country {
   color: #e0e0e0;
+}
+
+/* Add these styles to your existing SCSS file */
+
+.testimonials-carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 15px; // Reduced top and bottom margins
+  position: relative;
+}
+
+.testimonials-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform; // Optimize for animation performance
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin: 0 15px;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); // Faster transition time
+  will-change: transform, opacity; // Optimize for animation performance
+
+  &.active-card {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 3;
+    flex: 0 0 50%;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); // Faster transition time
+  }
+
+  &.faded {
+    transform: scale(0.85);
+    opacity: 0.5;
+    z-index: 1;
+    flex: 0 0 30%;
+    filter: blur(1px);
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); // Faster transition time
+
+    &.prev-card {
+      transform: translateX(-5%) scale(0.85);
+    }
+
+    &.next-card {
+      transform: translateX(5%) scale(0.85);
+    }
+  }
+}
+
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+
+  .arrow {
+    font-size: 20px;
+    color: #333;
+  }
+
+  &:hover {
+    background-color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.prev-button {
+    left: 5%;
+  }
+
+  &.next-button {
+    right: 5%;
+  }
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px; // Further reduced margin to bring dots closer to cards
+  gap: 8px;
+  position: relative;
+
+  // Card range counter
+  .card-range {
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    color: #777;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.indicator-dot {
+  width: 8px; // Smaller dots
+  height: 8px; // Smaller dots
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 73, 82, 0.5); // 50% opacity for active color
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+  }
+
+  &.active {
+    background-color: transparent;
+    transform: scale(1.2);
+
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &:hover {
+    background-color: #bbb;
+    transform: scale(1.1);
+
+    &::after {
+      transform: scale(0.5);
+    }
+  }
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+  .client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #f0f0f0;
+  }
+
+  .client-name {
+    font-weight: 600;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .client-country {
+    color: #777;
+    margin: 5px 0 0;
+  }
+}
+
+.star-rating {
+  margin-bottom: 15px;
+
+  .star {
+    color: #ffc107;
+    font-size: 20px;
+    margin-right: 2px;
+  }
+}
+
+.testimonial-text {
+  color: #555;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Sliding animations
+.slide-next .testimonial-card {
+  animation: none; // Remove the previous animation to avoid conflicts
+}
+
+.slide-prev .testimonial-card {
+  animation: none; // Remove the previous animation to avoid conflicts
+}
+
+// Add a class for the active card's animations
+.slide-next .active-card {
+  animation: smoothSlideFromRight 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; // Faster animation
+}
+
+.slide-next .prev-card {
+  animation: smoothSlideLeft 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; // Faster animation
+}
+
+.slide-next .next-card {
+  animation: smoothSlideToActive 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; // Faster animation
+}
+
+.slide-prev .active-card {
+  animation: smoothSlideFromLeft 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; // Faster animation
+}
+
+.slide-prev .next-card {
+  animation: smoothSlideRight 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; // Faster animation
+}
+
+.slide-prev .prev-card {
+  animation: smoothSlideToActive 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; // Faster animation
+}
+
+// Refined keyframes for smoother animation
+@keyframes smoothSlideFromRight {
+  0% {
+    opacity: 0.7;
+    transform: translateX(10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes smoothSlideFromLeft {
+  0% {
+    opacity: 0.7;
+    transform: translateX(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes smoothSlideLeft {
+  0% {
+    transform: translateX(0) scale(0.85);
+  }
+  100% {
+    transform: translateX(-5%) scale(0.85);
+  }
+}
+
+@keyframes smoothSlideRight {
+  0% {
+    transform: translateX(0) scale(0.85);
+  }
+  100% {
+    transform: translateX(5%) scale(0.85);
+  }
+}
+
+@keyframes smoothSlideToActive {
+  0% {
+    opacity: 0.5;
+    filter: blur(1px);
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 0.5;
+    filter: blur(1px);
+    transform: scale(0.85);
+  }
+}
+
+// Remove these old keyframes as they're replaced by the new ones
+@keyframes slideFromRight {
+  // Remove this entire keyframe
+}
+
+@keyframes slideFromLeft {
+  // Remove this entire keyframe
+}
+
+.faded {
+  opacity: 0.6;
+}
+
+.prev-card,
+.next-card {
+  pointer-events: none;
+}
+
+/* Dark mode overrides for indicator dots */
+body.dark .indicator-dot {
+  background-color: #444;
+
+  &::after {
+    background-color: rgba(
+      255,
+      73,
+      82,
+      0.5
+    ); // 50% opacity for active color in dark mode
+  }
+
+  &:hover {
+    background-color: #555;
+  }
+}
+
+body.dark .nav-button {
+  background-color: rgba(40, 40, 40, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  .arrow {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #333;
+  }
+}
+
+body.dark .card-range {
+  background: rgba(40, 40, 40, 0.7);
+  color: #ddd;
 }
