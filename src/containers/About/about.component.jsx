@@ -27,8 +27,11 @@ const About = () => {
             </div>
             <div className="col-lg-6 about-text">
               <div className="profile-block">
-                <i className="fas fa-map-marker-alt map-icon"></i>
-                <p className="location-text">&nbsp; India | &nbsp;</p>
+                <div className="location-block">
+                  <i className="fas fa-map-marker-alt map-icon"></i>
+                  <p className="location-text">&nbsp; India | &nbsp;</p>
+                  <p className="location-text-mobile">India</p>
+                </div>
                 <p className="profile-text">
                   React | Angular | Spring Boot | UI/UX
                 </p>
