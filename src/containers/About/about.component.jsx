@@ -1,22 +1,23 @@
 import React from "react";
 import "./about.styles.scss";
-import profileImage from "../../assets/images/profile4.png";
+import profileImage from "../../assets/images/profile.png";
 import resumePdf from "../../assets/resume.pdf";
 
 const About = () => {
   return (
     <div>
       <section className="about" id="about">
+        <div className="about-divider" />
         <div className="container">
+          <div className="about-header">
+            <h4 className="about-subtitle">Who am I?</h4>
+            <h2 className="about-title">About me</h2>
+          </div>
           <div className="row about-row">
             <div className="col-lg-6 image-block">
               <img className="profile-image" src={profileImage} alt="profile" />
             </div>
             <div className="col-lg-6 about-text">
-              <div className="about-header">
-                <h4 className="about-subtitle">Who am I?</h4>
-                <h2 className="about-title">About me</h2>
-              </div>
               <div className="profile-block">
                 <i className="fas fa-map-marker-alt map-icon"></i>
                 <p className="profile-text">&nbsp; India | &nbsp;</p>
@@ -25,11 +26,11 @@ const About = () => {
                 </p>
               </div>
               <p className="desc-para">
-                I’m a full-stack developer and creative UI/UX designer
+                I'm a full-stack developer and creative UI/UX designer
                 passionate about building intuitive, responsive applications. I
                 blend technical expertise with a keen eye for design to craft
                 experiences that are both functional and visually engaging. When
-                I’m not coding or sketching out interfaces, you can find me
+                I'm not coding or sketching out interfaces, you can find me
                 exploring new music, playing the guitar, or traveling to gain
                 fresh inspiration.
               </p>

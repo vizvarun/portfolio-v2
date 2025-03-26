@@ -47,12 +47,16 @@ const Navbar = () => {
   return (
     <div className="navbar-wrapper">
       <header>
-        <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+        <nav
+          className={`navbar compact-navbar ${
+            scrolled ? "navbar-scrolled" : ""
+          }`}
+        >
           <div className="navbar-container">
             <a href="/" className="navbar-brand">
               <svg
-                width="35px"
-                height="35px"
+                width="30px"
+                height="30px"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 140 167"
               >

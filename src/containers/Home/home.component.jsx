@@ -64,7 +64,7 @@ const Home = () => {
           <span className="span" />
           <div className="row">
             <div className="col-lg-10 col-md-12">
-              <h1 className="hero-text glitch">👋 Hello, I'm Varun Vishal</h1>
+              <h1 className="hero-text glitch">Hello, I'm Varun Vishal</h1>
               <h2 className="sub-text">
                 A &nbsp;
                 <span className="inner-span">Software Developer</span>,

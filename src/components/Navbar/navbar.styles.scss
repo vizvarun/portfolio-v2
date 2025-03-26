@@ -17,6 +17,7 @@
   box-shadow: none;
   margin: 0; // Remove conflicting margins
   border-bottom: none; /* Explicitly set no border initially */
+  height: auto; // Let content dictate height rather than fixed height
 
   &-scrolled {
     background: rgba(255, 255, 255, 0.8);
@@ -31,7 +32,6 @@
     display: flex;
     justify-content: space-between; // This ensures space between brand and nav
     align-items: center;
-    padding: 0 2rem;
     max-width: 1200px;
     margin: 0 auto; // Re-add this to ensure centering
     width: 100%; // Ensure it takes available width up to max-width
@@ -317,5 +317,33 @@ body.dark .theme-switcher {
     svg {
       stroke: #121212;
     }
+  }
+}
+
+// Add this to your existing navbar styles
+
+.compact-navbar {
+  padding: 0.5rem 1rem; // Reduced padding from top and bottom
+
+  .navbar-brand {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem; // Reduce padding on nav links
+  }
+
+  .navbar-container {
+    min-height: 50px; // Reduce the minimum height (adjust as needed)
+  }
+}
+
+// If you have specific media queries, adjust the height there as well
+@media (max-width: 768px) {
+  .compact-navbar {
+    padding: 0.4rem 0.8rem; // Even more compact on mobile
   }
 }

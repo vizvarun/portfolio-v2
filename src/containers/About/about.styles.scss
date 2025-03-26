@@ -4,6 +4,18 @@
   background-color: #f9f9f9;
 }
 
+.about-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.1),
+    transparent
+  );
+  margin-bottom: 50px;
+}
+
 .about-header {
   text-align: center;
   margin-bottom: 30px;
@@ -44,6 +56,7 @@
 .profile-image {
   max-width: 26vw;
   margin-bottom: 40px;
+  max-height: 80vh; /* Limit height for very large screens */
 }
 .about-text {
   position: relative;
@@ -359,10 +372,87 @@ i {
   }
 }
 
+/* Add new media queries for larger screens */
+@media (min-width: 1441px) {
+  .profile-image {
+    max-width: 24vw; /* Slightly smaller on large screens */
+  }
+
+  .about-row {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .desc-para {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .about {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .profile-image {
+    max-width: 22vw; /* Even smaller on very large screens */
+  }
+
+  .about-row {
+    max-width: 1800px;
+  }
+
+  .about-header .about-title {
+    font-size: 42px;
+  }
+
+  .about-header .about-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .profile-image {
+    max-width: 20vw;
+  }
+
+  .about-row {
+    max-width: 2000px;
+    gap: 40px; /* Add space between image and text without changing layout */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping on large screens */
+  }
+
+  /* Ensure columns maintain their width */
+  .about-row .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* Add some spacing between columns */
+  .about-row .col-lg-6.image-block {
+    padding-right: 30px;
+  }
+
+  .about-row .col-lg-6.about-text {
+    padding-left: 30px;
+  }
+}
+
 /* Dark mode overrides */
 body.dark .about {
   background-color: #1d252c;
   color: #f0f0f0; /* Increased contrast */
+  .about-divider {
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
 }
 
 body.dark .about-header .about-subtitle {
