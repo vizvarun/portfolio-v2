@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./about.styles.scss";
-import profileImage from "../../assets/images/profile.png";
+import profileDarkImage from "../../assets/images/profile-dark.png";
+import profileWhiteImage from "../../assets/images/profile-white.png";
 import resumePdf from "../../assets/resume.pdf";
+import { ThemeContext } from "../../contexts/theme.context";
 
 const About = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div>
       <section className="about" id="about">
@@ -15,12 +19,16 @@ const About = () => {
           </div>
           <div className="row about-row">
             <div className="col-lg-6 image-block">
-              <img className="profile-image" src={profileImage} alt="profile" />
+              <img
+                className="profile-image"
+                src={theme === "dark" ? profileDarkImage : profileWhiteImage}
+                alt="profile"
+              />
             </div>
             <div className="col-lg-6 about-text">
               <div className="profile-block">
                 <i className="fas fa-map-marker-alt map-icon"></i>
-                <p className="profile-text">&nbsp; India | &nbsp;</p>
+                <p className="location-text">&nbsp; India | &nbsp;</p>
                 <p className="profile-text">
                   React | Angular | Spring Boot | UI/UX
                 </p>

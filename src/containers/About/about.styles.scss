@@ -105,11 +105,17 @@ i {
   text-align: center;
 }
 
+.location-text {
+  font-family: "Louis Bold", sans-serif;
+  font-size: 1.1rem;
+  color: #ff4952;
+  text-align: center;
+}
+
 .map-icon {
   font-size: 1rem;
   margin-top: 0.9%;
-  color: black;
-  opacity: 0.7;
+  color: #ff4952;
 }
 
 .resume-btn {
@@ -299,7 +305,9 @@ i {
 }
 
 @media (max-width: 586px) {
-  .profile-text {
+  .profile-text,
+  .location-text,
+  .map-icon {
     font-size: 1rem;
   }
 }
@@ -346,6 +354,39 @@ i {
   }
 }
 
+@media (max-width: 400px) {
+  .profile-block {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    padding: 5px;
+    gap: 8px; /* Add space between stacked elements */
+  }
+
+  .map-icon-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .map-icon {
+    margin: 0 5px 0 0;
+    font-size: 0.9rem;
+  }
+
+  .location-text {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+  }
+
+  .profile-text {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+  }
+}
+
 @media (max-width: 375px) {
   .hero-text {
     text-align: center;
@@ -356,6 +397,11 @@ i {
   }
   .desc-para {
     text-align: center !important;
+  }
+  .profile-text,
+  .location-text,
+  .map-icon {
+    font-size: 0.8rem;
   }
 }
 
@@ -469,9 +515,14 @@ body.dark .desc-para {
   opacity: 1; /* Remove opacity to improve readability */
 }
 
-body.dark .profile-text,
-body.dark .map-icon {
+body.dark .profile-text {
   color: #e0e0e0;
+  opacity: 1; /* Remove opacity to improve readability */
+}
+
+body.dark .map-icon,
+body.dark .location-text {
+  color: #ff4952;
   opacity: 1; /* Remove opacity to improve readability */
 }
 
