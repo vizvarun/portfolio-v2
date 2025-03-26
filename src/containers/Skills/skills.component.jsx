@@ -9,7 +9,7 @@ import figmaIcon from "../../assets/images/figma.svg";
 
 const Skills = () => {
   const design = [
-    { title: "UX/UI Design", id: 0 },
+    { title: "UI/UX Design", id: 0 },
     { title: "Graphics & Illustrations", id: 1 },
     { title: "Iconography", id: 2 },
     { title: "Typography", id: 3 },
