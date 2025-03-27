@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./skills.styles.scss";
 import vscodeIcon from "../../assets/images/vscode.svg";
 import intellijIcon from "../../assets/images/intellij.svg";
 import dbeaverIcon from "../../assets/images/dbeaver.svg";
 import photoshopIcon from "../../assets/images/photoshop.svg";
+import copilotDarkIcon from "../../assets/images/github-copilot-dark.svg";
+import copilotLightIcon from "../../assets/images/github-copilot-light.svg";
 import dockerIcon from "../../assets/images/docker.svg";
 import figmaIcon from "../../assets/images/figma.svg";
+import { ThemeContext } from "../../contexts/theme.context";
 
 const Skills = () => {
+  const { theme } = useContext(ThemeContext);
+
   const design = [
     { title: "UI/UX Design", id: 0 },
     { title: "Graphics & Illustrations", id: 1 },
@@ -29,10 +34,14 @@ const Skills = () => {
   const tools = [
     { title: "VS Code", id: 4, src: vscodeIcon },
     { title: "IntelliJ", id: 0, src: intellijIcon },
+    {
+      title: "GitHub Copilot",
+      id: 5,
+      src: theme === "dark" ? copilotLightIcon : copilotDarkIcon,
+    },
     { title: "DBeaver", id: 1, src: dbeaverIcon },
     { title: "Docker", id: 2, src: dockerIcon },
     { title: "Figma", id: 3, src: figmaIcon },
-    { title: "Adobe Photoshop", id: 5, src: photoshopIcon },
   ];
 
   return (
