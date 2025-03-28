@@ -347,3 +347,33 @@ body.dark .theme-switcher {
     padding: 0.4rem 0.8rem; // Even more compact on mobile
   }
 }
+
+/* Update mobile-navbar-scrolled class to remove blur effect on mobile */
+.mobile-navbar-scrolled {
+  @media (max-width: 768px) {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); /* More opaque background instead of blur */
+    backdrop-filter: none; /* Remove blur effect */
+    -webkit-backdrop-filter: none; /* Remove blur effect */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark mode styling for mobile navbar when scrolled */
+  body.dark & {
+    @media (max-width: 768px) {
+      background: rgba(
+        29,
+        37,
+        44,
+        0.95
+      ) !important; /* More opaque background instead of blur */
+      backdrop-filter: none; /* Remove blur effect */
+      -webkit-backdrop-filter: none; /* Remove blur effect */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+}

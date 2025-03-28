@@ -327,19 +327,19 @@
   }
 
   .nav-button {
-    height: 40px;
-    width: 40px;
+    height: 28px !important;
+    width: 28px !important;
 
     &.prev-button {
-      left: 2%;
+      left: -3.5% !important;
     }
 
     &.next-button {
-      right: 2%;
+      right: -3.5% !important;
     }
 
     .arrow {
-      font-size: 16px;
+      font-size: 14px !important;
     }
   }
 
@@ -347,9 +347,9 @@
     margin: 20px 0 10px; // Smaller margins on mobile
   }
 
-  .nav-button {
-    display: none !important; /* Use !important to ensure they're hidden */
-  }
+  // .nav-button {
+  //   display: none !important; /* Use !important to ensure they're hidden */
+  // }
 
   .testimonials-carousel-container {
     padding-left: 0;
@@ -412,9 +412,9 @@
     }
   }
 
-  .nav-button {
-    display: none !important; /* Keep navigation buttons hidden */
-  }
+  // .nav-button {
+  //   display: none !important; /* Keep navigation buttons hidden */
+  // }
 
   .testimonials-carousel-container {
     padding: 0;
@@ -543,11 +543,11 @@
   }
 
   .nav-button {
-    height: 35px;
-    width: 35px;
+    height: 25px;
+    width: 25px;
 
     .arrow {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 

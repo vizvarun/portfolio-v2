@@ -5,6 +5,7 @@ import { ThemeContext } from "../../contexts/theme.context";
 const Navbar = () => {
   const [collapse, setCollapse] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const collapseRef = useRef(collapse);
 
@@ -12,6 +13,16 @@ const Navbar = () => {
   useEffect(() => {
     collapseRef.current = collapse;
   }, [collapse]);
+
+  // Track window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const labels = [
     { title: "About", id: 0, href: "#about" },
@@ -28,7 +39,7 @@ const Navbar = () => {
 
   // Close mobile menu when clicking a link
   const handleLinkClick = () => {
-    if (window.innerWidth <= 768) {
+    if (windowWidth <= 768) {
       setCollapse(false);
     }
   };
@@ -42,42 +53,42 @@ const Navbar = () => {
       } else {
         setScrolled(false);
       }
-      
+
       // Close menu on any scroll when on mobile
-      if (collapseRef.current && window.innerWidth <= 768) {
+      if (collapseRef.current && windowWidth <= 768) {
         setCollapse(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     // Add click event listener to close menu when clicking outside
     const handleClickOutside = (event) => {
       if (
         collapseRef.current &&
-        window.innerWidth <= 768 &&
+        windowWidth <= 768 &&
         !event.target.closest(".navbar-collapse") &&
         !event.target.closest(".navbar-toggler")
       ) {
         setCollapse(false);
       }
     };
-    
+
     document.addEventListener("click", handleClickOutside);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [windowWidth]);
 
   return (
     <div className="navbar-wrapper">
       <header>
         <nav
           className={`navbar compact-navbar ${
-            scrolled ? "navbar-scrolled" : ""
-          }`}
+            scrolled && windowWidth > 768 ? "navbar-scrolled" : ""
+          } ${scrolled && windowWidth <= 768 ? "mobile-navbar-scrolled" : ""}`}
         >
           <div className="navbar-container">
             <a href="/" className="navbar-brand">
@@ -154,7 +165,12 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className={`navbar-collapse ${collapse ? "show" : ""} ${scrolled ? "navbar-scrolled" : ""}`}>
+            <div
+              className={`navbar-collapse ${collapse ? "show" : ""} ${
+                // Only apply mobile-scrolled class instead of navbar-scrolled
+                scrolled && windowWidth <= 768 ? "mobile-navbar-scrolled" : ""
+              }`}
+            >
               <ul className="navbar-nav">
                 {labels.map((label) => (
                   <li className="nav-item" key={label.id}>
