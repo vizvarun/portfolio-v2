@@ -69,6 +69,9 @@ const Clients = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   // Add state to track slide direction for animation
   const [slideDirection, setSlideDirection] = useState("next");
+  // Add state for touch positions to handle swipe
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   // Auto slide functionality
   useEffect(() => {
@@ -99,6 +102,31 @@ const Clients = () => {
     setCurrentIndex(index);
   };
 
+  // Touch event handlers for swipe functionality
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 100) {
+      // Swipe left, go next
+      goToNext();
+    }
+
+    if (touchStart - touchEnd < -100) {
+      // Swipe right, go previous
+      goToPrev();
+    }
+
+    // Reset touch positions
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   // Get current testimonial
   const currentTestimonial = testimonials[currentIndex];
 
@@ -122,7 +150,12 @@ const Clients = () => {
               <span className="arrow">&#10094;</span>
             </button>
 
-            <div className={`testimonials-carousel slide-${slideDirection}`}>
+            <div
+              className={`testimonials-carousel slide-${slideDirection}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {/* Previous card (faded) */}
               <div className="testimonial-card faded prev-card">
                 <div className="client-info">

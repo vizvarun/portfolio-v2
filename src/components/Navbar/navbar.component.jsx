@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import "./navbar.styles.scss";
 import { ThemeContext } from "../../contexts/theme.context";
 
@@ -6,6 +6,12 @@ const Navbar = () => {
   const [collapse, setCollapse] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const collapseRef = useRef(collapse);
+
+  // Update ref when collapse state changes
+  useEffect(() => {
+    collapseRef.current = collapse;
+  }, [collapse]);
 
   const labels = [
     { title: "About", id: 0, href: "#about" },
@@ -30,17 +36,38 @@ const Navbar = () => {
   // Handle scroll events to add blur effect and border
   useEffect(() => {
     const handleScroll = () => {
+      // Set scrolled state for navbar styling
       if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+      
+      // Close menu on any scroll when on mobile
+      if (collapseRef.current && window.innerWidth <= 768) {
+        setCollapse(false);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Add click event listener to close menu when clicking outside
+    const handleClickOutside = (event) => {
+      if (
+        collapseRef.current &&
+        window.innerWidth <= 768 &&
+        !event.target.closest(".navbar-collapse") &&
+        !event.target.closest(".navbar-toggler")
+      ) {
+        setCollapse(false);
+      }
+    };
+    
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
@@ -127,7 +154,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className={`navbar-collapse ${collapse ? "show" : ""}`}>
+            <div className={`navbar-collapse ${collapse ? "show" : ""} ${scrolled ? "navbar-scrolled" : ""}`}>
               <ul className="navbar-nav">
                 {labels.map((label) => (
                   <li className="nav-item" key={label.id}>
