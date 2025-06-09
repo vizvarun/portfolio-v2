@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import "./about.styles.scss";
-import profileDarkImage from "../../assets/images/profile-dark.png";
-import profileWhiteImage from "../../assets/images/profile-white.png";
+// import profileDarkImage from "../../assets/images/profile-dark.png";
+// import profileWhiteImage from "../../assets/images/profile-white.png";
+import profileDarkImage from "../../assets/images/profile-pic-dark.png";
+import profileWhiteImage from "../../assets/images/profile-pic-light.png";
 import resumePdf from "../../assets/resume.pdf";
 import { ThemeContext } from "../../contexts/theme.context";
 
